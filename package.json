@@ -11,7 +11,7 @@
     "express-cluster": "^0.0.5",
     "express-enforces-ssl": "^1.1.0",
     "express-rate-limit": "^4.0.1",
-    "ytdl-core": "^1.0.64"
+    "ytdl-core": "^1.0.6"
   },
   "engines": {
     "node": "8.x"
