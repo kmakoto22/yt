@@ -19,6 +19,7 @@ ytdl(URL, {
 
 
 app.get('/subtits', (req,res1) => {
+    var id = req.query.URL;
 ytdl.getInfo(id, (err, info) => {
   if (err) throw err;
   const tracks = info
