@@ -12,6 +12,7 @@ app.listen(process.env.PORT, () => {
 app.get('/download', (req,res) => {
 var URL = req.query.URL;
 res.header('Content-Disposition', 'attachment; filename="video.mp4"');
+    res.header('Access-Control-Allow-Origin', '*');
 ytdl(URL, {
     format: 'mp4'
     }).pipe(res);
@@ -36,6 +37,7 @@ ytdl.getInfo(id, (err, info) => {
       const output = `${info.title}.${track.languageCode}.xml`;
       console.log('Saving to', output);
       https.get(track.baseUrl, (res) => {
+          res1.header('Access-Control-Allow-Origin', '*');
           res1.header('Content-Disposition', 'attachment; filename="captions.ttml"');
 res1.header('Content-Type', 'application/ttml+xml');
 
