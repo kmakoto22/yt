@@ -36,6 +36,9 @@ ytdl.getInfo(id, (err, info) => {
       const output = `${info.title}.${track.languageCode}.xml`;
       console.log('Saving to', output);
       https.get(track.baseUrl, (res) => {
+          res1.header('Content-Disposition', 'attachment; filename="captions.ttml"');
+res1.header('Content-Type', 'application/ttml+xml');
+
         res.pipe(res1);
       });
 
