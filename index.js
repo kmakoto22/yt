@@ -18,9 +18,7 @@ ytdl(URL, {
 });
 
 
-app.get('/subtits', (req,res) => {
-var id = req.query.URL;
-    var lang = "en";
+app.get('/subtits', (req,res1) => {
 ytdl.getInfo(id, (err, info) => {
   if (err) throw err;
   const tracks = info
@@ -36,8 +34,7 @@ ytdl.getInfo(id, (err, info) => {
       const output = `${info.title}.${track.languageCode}.xml`;
       console.log('Saving to', output);
       https.get(track.baseUrl, (res) => {
-          res.header('Content-Disposition', 'attachment; filename="subtits.xml"');
-        res.pipe(res);
+        res.pipe(res1);
       });
 
     } else {
